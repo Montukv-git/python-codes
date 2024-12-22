@@ -22,18 +22,17 @@ def twosum(nums, target):
 
 #print(twosum(nums, target))
 
-#Solution 2         -   optimal solution with dict with time complexcity of O(1)
+#Solution 2         -   optimal solution with dict with time complexcity of O(n)
 
 def twosumoptimal(nums, target):
-    temp_dict =   {}
+    temp_dict   =   {}
     for i,num in enumerate(nums):
-        rem =   target - num
+        rem =   target  -   num
         if rem in temp_dict:
             return[temp_dict[rem],i]
         
-        temp_dict[num]   =   i
-            
-    return []
+        temp_dict[num]  =   i
+    return  []
 
 print(twosumoptimal(nums, target))
 
