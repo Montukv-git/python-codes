@@ -13,18 +13,27 @@ def max_profit(prices):
     sell_pointer    =   0
     l = len(prices)-1
     total_profit = 0
-    if prices and l > 1:
+    if prices and l > 0:
         sell_pointer+=1
         while(sell_pointer<=l):
-            if sell_pointer ==  l:
-                total_profit = prices[sell_pointer] - prices[buy_pointer] 
-                return total_profit
-            if prices[buy_pointer]<prices[sell_pointer]:
-                #add logic here to sell at max and move to new buy pointer and sell pointer
-                pass
-            sell_pointer+=1
+            if sell_pointer ==  l :
+                if prices[buy_pointer]<prices[sell_pointer]:
+                    total_profit += prices[sell_pointer] - prices[buy_pointer] 
+                    return total_profit
+                else:
+                    return total_profit
+            if prices[buy_pointer]<=prices[sell_pointer] :
+                if prices[sell_pointer] > prices[sell_pointer+1]:
+                    total_profit += prices[sell_pointer] - prices[buy_pointer] 
+                    buy_pointer =   sell_pointer+1
+                    sell_pointer += 2
+                else:
+                    sell_pointer += 1
+            elif prices[buy_pointer]>prices[sell_pointer]:
+                buy_pointer =   sell_pointer
+                sell_pointer+=1
         return total_profit
     return 0
 
-print(max_profit(prices=[1,2,3,4,5]))
+print(max_profit(prices=[1,7,4,2]))
 
