@@ -27,3 +27,20 @@ def find_missing_number(nums):
 
 nums = [3, 0, 1]
 print(find_missing_number(nums))  
+
+
+"""Explanation
+XOR of Array Elements:
+
+Compute the XOR of all numbers in the given array.
+Find Missing Number:
+
+The missing number is the XOR of the above two results:
+missing
+=
+xor_all
+⊕
+xor_nums
+missing=xor_all⊕xor_nums
+This works because XOR cancels out duplicate numbers, leaving the missing number.
+"""
