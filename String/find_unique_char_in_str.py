@@ -17,16 +17,15 @@ Output: -1
 """
 
 def find_unique_char_in_str(s):
-    char_counter = {}
+    char_count = {}
     for c in s:
-        char_counter[c] =   char_counter.get(c,0)+1
-
+        char_count[c] = char_count.get(c,0)+1
+    
     for i,c in enumerate(s):
-        if char_counter[c]  ==  1:
+        if char_count[c]    ==  1:
             return i
         
-    return  -1
-    
+    return -1
 
 test = ["leetcode",
         "loveleetcode",
