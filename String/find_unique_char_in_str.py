@@ -18,9 +18,12 @@ Output: -1
 
 def find_unique_char_in_str(s):
     char_count = {}
+
+    #get the char count for each element in string
     for c in s:
         char_count[c] = char_count.get(c,0)+1
     
+    #return element index where count is 1 else return -1
     for i,c in enumerate(s):
         if char_count[c]    ==  1:
             return i
@@ -31,6 +34,7 @@ test = ["leetcode",
         "loveleetcode",
         "aabb",
         "x"]
+
 
 for s in test:
     print(find_unique_char_in_str(s))
