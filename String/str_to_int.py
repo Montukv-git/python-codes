@@ -54,3 +54,12 @@ Output: 0
 Explanation:
 Reading stops at the first non-digit character 'w'.
 """
+
+def str_to_int(s):
+    l=len(s)
+    the_int = ""
+    if l > 0:
+     #add code
+
+
+    return
