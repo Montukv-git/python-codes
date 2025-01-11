@@ -38,3 +38,4 @@ test = ["leetcode",
 
 for s in test:
     print(find_unique_char_in_str(s))
+
