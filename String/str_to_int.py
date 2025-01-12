@@ -54,12 +54,38 @@ Output: 0
 Explanation:
 Reading stops at the first non-digit character 'w'.
 """
-
 def str_to_int(s):
-    l=len(s)
-    the_int = ""
-    if l > 0:
-     #add code
+    # Step 1: Strip leading and trailing whitespace
+    s = s.strip()
+    
+    if not s:
+        return 0  # Return 0 if the string is empty after stripping
 
+    # Step 2: Handle optional sign
+    sign = 1
+    index = 0
+    if s[0] in ['-', '+']:
+        sign = -1 if s[0] == '-' else 1
+        index += 1
 
-    return
+    # Step 3: Read the digits
+    result = 0
+    while index < len(s) and s[index].isdigit():
+        result = result * 10 + int(s[index])
+        index += 1
+
+    # Step 4: Apply the sign
+    result *= sign
+
+    # Step 5: Clamp the result to 32-bit integer range
+    int_min, int_max = -2**31, 2**31 - 1
+    if result < int_min:
+        return int_min
+    if result > int_max:
+        return int_max
+
+    return result
+
+# Example usage
+s = "    -0042"
+print(str_to_int(s))  # Output: -42
